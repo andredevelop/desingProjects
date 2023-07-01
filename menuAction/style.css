@@ -1,0 +1,119 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Arial;
+}
+
+body{
+	padding-top: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	background-color: #222;
+}
+.list{
+	display: flex;
+	gap: 10px;
+}
+.list .user{
+	position: relative;
+	background-color: white;
+	min-height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:10px;
+	padding: 10px;
+	gap: 10px;
+}
+.list .user .imgBox{
+	position: relative;
+	width: 50px;
+	min-height: 50px;
+	overflow: hidden;
+	/* border-radius: 6px; */
+}
+.list .user .imgBox img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.list .user .detalhes{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.list .user .detalhes h3{
+	font-weight: 600;
+	line-height: 17.6px;
+}
+.list .user .detalhes p{
+	font-weight: 500;
+	line-height: 12.8px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.navigation{
+	position: relative;
+	width: 40px;
+	height: 70px;
+	background-color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.5s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.navigation.active{
+	width: 200px;
+}
+.navigation span{
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	background-color: #222;
+	border-radius: 50%;
+	transition: 0.5s;
+}
+.navigation span i{
+	display: none;
+}
+.navigation span:nth-child(1){
+	transform: translateY(-12px);
+}
+.navigation span:nth-child(3){
+	transform: translateY(12px);
+}
+.navigation.active span{
+	width: 50px;
+	height: 50px;
+	color: white;
+	text-align: center;
+	padding-top: 8px;
+	border: 3px solid #222;
+
+}
+.navigation.active span i{
+	display: block;
+	color: #f4f4f4;
+	font-size: 28px;
+}
+.navigation.active span:hover{
+	background-color: #31ED31;
+}
+/* .navigation.active span:nth-child(1),
+.navigation.active span:nth-child(3){
+	transform: translateY(0);
+} */
+.navigation.active span:nth-child(1){
+	transform: translateY(0) translateX(-60px);
+}
+.navigation.active span:nth-child(3){
+	transform: translateY(0) translateX(60px);
+}

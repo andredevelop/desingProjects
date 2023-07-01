@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Menu Action</title>
+</head>
+<body>
+	<div class="list">
+		<div class="user">
+			<div class="imgBox">
+				<img src="image.png">
+			</div><!-- imgBox -->
+			<div class="detalhes">
+				<h3>André Duarte</h3>
+				<p>FullStack Developer</p>
+			</div>
+		</div><!-- user -->
+		<div class="navigation">
+			<span><i class="fab fa-facebook"></i></span>
+			<span><i class="fab fa-instagram"></i></span>
+			<span><i class="fab fa-whatsapp"></i></span>
+		</div><!-- navgation -->
+	</div><!-- list -->
+	
+	<script>
+		let navgation = document.querySelector('.navigation');
+		navgation.onclick = function(){
+			navgation.classList.toggle('active');
+		}
+	</script>
+</body>
+</html>

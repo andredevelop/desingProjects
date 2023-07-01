@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Typwriter</title>
+	<style>
+		body {
+		  background-color: #00ffba;
+		  height: 100%;
+		  font-family: 'tradegothiclt-bold', sans-serif;
+		}
+
+		h1 {
+		  font-size: 2em;
+		  color: black;
+		  text-transform: uppercase;
+		}
+
+		span {
+		  border-right: .05em solid;
+		  animation: cursor 1s steps(1) infinite;
+		}
+
+		@keyframes cursor {
+		  50% {
+		    border-color: transparent;
+		  }
+		}
+	</style>
+</head>
+<body>
+	<h1></h1>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function(){
+		//arrays para serem digitados
+		var services = ["CSS 3", "HTML 5","JavaScript", "PHP", "jquery",'Conhecimentos'];
+
+		//digitar e manter digitando ate a palavra acabar
+		escrever = (text, i, callback) => {
+			//checar se o texto nao terminou
+			if(i < (text.length)) {
+				//adiciona o proximo caracter no h1
+				var linha = $('h1');
+
+				linha.html(text.substring(0,i+1) + '<span aria-hidden="true"></span>');
+
+				//espera um pouco e chame esta funcao de novo para o proximo caracter
+				setTimeout(()=>{
+					escrever(text, i + 1, callback)
+				},100);
+			}
+			//texto finalizado, chame o callback se houver uma funcao callback
+			else if(typeof callback == 'function'){
+				//chamando callback depois do timeout
+				setTimeout(callback, 700);
+			}
+		}
+
+		//inicia uma animaçao da escrita para o texto na var services
+		iniciarAnimacao = (i) => {
+			if(typeof services[i] == 'undefined'){
+				setTimeout(()=>{
+					iniciarAnimacao(0);
+				}, 1000);
+			}else
+			//vendo se existe o valor do array
+			if(i <= services[i].length){
+			//texto existe entao inicia a escrita
+				escrever(services[i], 0, function(){
+			//depois do callback (e de tudo ter sido animado), inicia a proxima palavra
+					iniciarAnimacao(i + 1);
+				});
+			}
+		}
+
+		iniciarAnimacao(0);
+	});
+</script>
+</body>
+</html>
